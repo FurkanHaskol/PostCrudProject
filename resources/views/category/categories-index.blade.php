@@ -29,7 +29,10 @@
                             @foreach($categories as $category)
                                 <tr>                                  
                                     <td>{{$category->name}}</td>
-                                    <td><a href="{{ route('categories.edit', ['id' => $category->id]) }}">Edit</a>
+                                    <td><form action="{{ route('categories.edit', ['id' => $category->id]) }}" method="GET" style="display:inline;">
+            @csrf
+            <button type="submit">Edit</button>
+        </form>
                                     <form action="{{ route('categories.delete', ['id' => $category->id]) }}" method="POST" style="display:inline;">
                 @csrf
                 @method('post')

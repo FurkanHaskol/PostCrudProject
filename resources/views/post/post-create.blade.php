@@ -38,23 +38,6 @@
             </select>
         </div>
 
-        <div>
-        <x-input-label for="priority" :value="__('Priority')" />
-            <select required id="priority" name="priority" class="mt-1 block w-full">
-            <option value="" disabled selected>Please Select</option>
-            <option value="1">Low</option>
-            <option value="2">Medium</option>
-            <option value="3">High</option>
-            </select>
-        </div>
-
-        <div>
-            <x-input-label for="due_date" :value="__('Due Date')" />
-            <input required id="due_date" name="due_date" type="date" class="mt-1 block w-full"
-                   min="{{ \Carbon\Carbon::now()->format('Y-m-d') }}" />
-            <x-input-error :messages="$errors->dueDate->get('due_date')" class="mt-2" />
-        </div>
-
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Save') }}</x-primary-button>
 

@@ -24,11 +24,6 @@
                                     <th>Title</th>
                                     <th>Description</th>
                                     <th>Category</th>
-                                    <th>Due Date</th>
-                                    <th>Reminder</th>
-                                    <th>Priority</th>
-                                    <th>Status</th>
-                                    <th>Complated Date</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -38,7 +33,7 @@
                                     <td>{{$post->title}}</td>
                                     <td>{{$post->description}}</td>
                                     <td>{{$post->category->name}}</td>
-                                <tr>
+                                <td>
     <div class="flex space-x-2">             
          <form action="{{ route('post.edit', ['id' => $post->id]) }}" method="GET" style="display:inline;">
             @csrf

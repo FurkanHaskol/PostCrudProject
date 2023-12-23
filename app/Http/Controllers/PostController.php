@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+use App\Models\Post;
 use Illuminate\Http\Request;
+use App\Http\Requests\PostRequest;
 
 class PostController extends Controller
 {
@@ -42,7 +43,7 @@ class PostController extends Controller
         return view('post.post-edit', compact('post','categories'));
     }
 
-    public function update(Request $request,$id)
+    public function update(PostRequest $request,$id)
     {
         $post = Post::find($id);
 
@@ -66,5 +67,4 @@ class PostController extends Controller
         return view('post.post-index')
             ->with('posts', $posts);
     }
-
-  }
+}

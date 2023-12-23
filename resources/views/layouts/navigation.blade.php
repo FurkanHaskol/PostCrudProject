@@ -20,11 +20,11 @@
                     </x-nav-link>
                     <x-nav-link :href="route('post.index')" :active="request()->routeIs('posts')">
                         {{ __('Posts') }} 
-                        @if(auth()->user()->activeReminders()->count() > 0)
-    <div class="text-red-500">
-        - Reminder: You have {{ auth()->user()->activeReminders()->count() }} reminder(s)!
-    </div>
-@endif
+                        
+    
+        
+    
+
                     </x-nav-link>
                     
                 </div>
