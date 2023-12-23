@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\PostRequest;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\InfoMailToUsers;
 
 class PostController extends Controller
 {
@@ -32,6 +35,12 @@ class PostController extends Controller
         $post->save();
         
         $posts= auth()->user()->posts()->get();
+
+        $users = User::all();
+
+        foreach($users as $user){
+            Mail::to($user->email)->send(new InfoMailToUsers($user));
+            }
         return view('post.post-index')
             ->with('posts', $posts);
     }
