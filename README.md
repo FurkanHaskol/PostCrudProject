@@ -1,0 +1,8 @@
+- php8.2 required
+- composer install
+- npm install
+- npm run
+- php artisan migrate
+- php artisan storage:link
+- cp .env.example .env 
+- Mailler için ben mailtrap kullandım. Mailtrap ayarlarınızı yaparak mailleri kontrol edebilirsiniz.

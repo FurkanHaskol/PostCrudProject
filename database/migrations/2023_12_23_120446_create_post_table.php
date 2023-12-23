@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('reminders', function (Blueprint $table) {
+        Schema::create('post', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('to_do_id')->nullable(false)->constrained();
-            $table->timestamp('remind_at')->nullable(true);
-            $table->string('message', 150)->nullable(true);
             $table->timestamps();
+            $table->string('title')->nullable(false);
+            $table->text('description')->nullable(true);
+            $table->foreignId('user_id')->nullable(false)->constrained();
+            $table->foreignId('category_id')->nullable(false)->constrained();
         });
     }
 
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('reminders');
+        Schema::dropIfExists('post');
     }
 };

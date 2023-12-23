@@ -48,16 +48,8 @@ class User extends Authenticatable
         return $this->hasMany(Category::class);
     }
 
-    public function toDos()
+    public function posts()
     {
-        return $this->hasMany(ToDo::class);
-    }
-
-    public function activeReminders()
-    {
-        $user = auth()->user();
-        $todo = $user->toDos()->get()->pluck('id')->toArray();
-        $reminders = Reminder::whereIn('to_do_id', $todo)->get();
-        return $reminders;
+        return $this->hasMany(Post::class);
     }
 }
